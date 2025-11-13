@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- RCG - 13/11/2025 - Ticket N° 00024376 - Campo para nombre descriptivo de bodega -->
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nombre_Bodega__c</fullName>
+    <label>Nombre Bodega</label>
+    <length>100</length>
+    <required>false</required>
+    <type>Text</type>
+    <description>Nombre descriptivo de la bodega en SAP. Ejemplo: BODEGA VENTAS GENERACION LO ESPEJO</description>
+</CustomField>
+

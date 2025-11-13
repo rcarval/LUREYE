@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- RCG - 13/11/2025 - Ticket N° 00024376 - Campo para región de despacho -->
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region_Despacho__c</fullName>
+    <label>Región Despacho</label>
+    <length>100</length>
+    <required>false</required>
+    <type>Text</type>
+    <description>Código de región de despacho separados por coma. Ejemplos: "13" (Santiago), "2" (Antofagasta), "8,10" (múltiples), o "TODAS"</description>
+</CustomField>
+

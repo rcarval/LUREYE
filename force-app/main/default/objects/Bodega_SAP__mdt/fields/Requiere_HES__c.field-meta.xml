@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- RCG - 13/11/2025 - Ticket N° 00024376 - Campo para condición HES -->
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requiere_HES__c</fullName>
+    <label>Requiere HES</label>
+    <length>50</length>
+    <required>false</required>
+    <type>Text</type>
+    <description>Valores de Quote.RequiereHES__c separados por coma. Ejemplos: "HES,802" para condiciones especiales, "VENTA_NORMAL" para ventas normales, o "TODAS"</description>
+</CustomField>
+

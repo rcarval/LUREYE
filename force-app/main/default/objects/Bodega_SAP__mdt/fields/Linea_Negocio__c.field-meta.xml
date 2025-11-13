@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- RCG - 13/11/2025 - Ticket N° 00024376 - Campo para líneas de negocio -->
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Linea_Negocio__c</fullName>
+    <label>Línea de Negocio</label>
+    <length>255</length>
+    <required>false</required>
+    <type>TextArea</type>
+    <description>Códigos de línea de negocio separados por coma. Ejemplos: "21000,15000,10000" o "TODAS" para aplicar a cualquier línea</description>
+</CustomField>
+

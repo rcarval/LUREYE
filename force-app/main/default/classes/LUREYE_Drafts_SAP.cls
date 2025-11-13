@@ -174,12 +174,42 @@ global class LUREYE_Drafts_SAP {
             if (qryQuote.Propiedades__c != null){
                 propiedades = qryQuote.Propiedades__c;
                 propHES     = qryQuote.RequiereHES__c;
-
-                if(propHES == 'HES' || propHES == '802')
-                {
-                    bodega = 'VTADFL10';
-                }        
             }
+            
+            // ========================================================================
+            // RCG - 13/11/2025 - Ticket N° 00024376 - INICIO MODIFICACIÓN
+            // Determinación dinámica de bodega SAP según línea de negocio y región
+            // ========================================================================
+            
+            // Consultar región de despacho para determinar bodega
+            String regionDespacho = null;
+            if (qryQuote.DirDespacho__c != null) {
+                try {
+                    Direccion__c dirDesp = [SELECT Region__c, Ciudad__c 
+                                            FROM Direccion__c 
+                                            WHERE Id = :qryQuote.DirDespacho__c 
+                                            LIMIT 1];
+                    regionDespacho = dirDesp.Region__c;
+                    System.debug('🏭 [BODEGA] Región de despacho: ' + dirDesp.Region__c + ' (' + dirDesp.Ciudad__c + ')');
+                } catch (Exception e) {
+                    System.debug('⚠️ [BODEGA] Error obteniendo región de despacho: ' + e.getMessage());
+                }
+            } else {
+                System.debug('⚠️ [BODEGA] Quote sin dirección de despacho');
+            }
+            
+            // Determinar bodega usando servicio centralizado
+            bodega = LUREYE_Bodega_SAP_Service.determinarBodega(
+                userqry.Linea_Negocio__c, 
+                regionDespacho, 
+                propHES
+            );
+            
+            System.debug('🏭 [BODEGA] Bodega asignada: ' + (bodega != null ? bodega : 'SIN BODEGA (SAP usará default)'));
+            
+            // ========================================================================
+            // RCG - 13/11/2025 - Ticket N° 00024376 - FIN MODIFICACIÓN
+            // ========================================================================
             
             costingcode = String.ValueOf(userqry.Centro_Costo__c);
             sucursal    = String.ValueOf(userqry.Sucursal__c);

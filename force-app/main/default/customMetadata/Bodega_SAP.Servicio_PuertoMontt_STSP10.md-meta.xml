@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- RCG - 13/11/2025 - Ticket N° 00024376 - Configuración bodega Servicio Puerto Montt -->
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Servicio Puerto Montt STSP10</label>
+    <protected>false</protected>
+    <values>
+        <field>Activo__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Codigo_Bodega_SAP__c</field>
+        <value xsi:type="xsd:string">STSP10</value>
+    </values>
+    <values>
+        <field>Linea_Negocio__c</field>
+        <value xsi:type="xsd:string">22000</value>
+    </values>
+    <values>
+        <field>Nombre_Bodega__c</field>
+        <value xsi:type="xsd:string">BODEGA DE SURTIDOS SERVICIOS TECNICO PTO. MONTT</value>
+    </values>
+    <values>
+        <field>Prioridad__c</field>
+        <value xsi:type="xsd:double">3.0</value>
+    </values>
+    <values>
+        <field>Region_Despacho__c</field>
+        <value xsi:type="xsd:string">10</value>
+    </values>
+    <values>
+        <field>Requiere_HES__c</field>
+        <value xsi:type="xsd:string">VENTA_NORMAL</value>
+    </values>
+</CustomMetadata>
+
