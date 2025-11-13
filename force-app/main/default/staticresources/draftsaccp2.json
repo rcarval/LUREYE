@@ -1,0 +1,10 @@
+{
+    "odata.metadata": "https://lureye.exxiscloud.com:50000/b1s/v1/$metadata#Quotations",
+    "value": [
+        {
+            "odata.etag": "W/\"356A192B7913B04C54574D18C28D46E6395428AB\"",
+            "DocEntry": 154,
+            "DocNum": 20000008,
+		}
+		]
+}

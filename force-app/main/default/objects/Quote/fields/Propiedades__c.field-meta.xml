@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Propiedades__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES(Cliente__r.Propiedades__c, &quot;QryGroup1&quot;), &quot;SERVICIO BASICO,&quot;, null) +
+IF(INCLUDES(Cliente__r.Propiedades__c, &quot;QryGroup2&quot;), &quot;ORDEN DE COMPA (801),&quot;, null) +
+IF(INCLUDES(Cliente__r.Propiedades__c, &quot;QryGroup3&quot;), &quot;QBLI (ITEM ORDEN DE COMPRA),&quot;, null) +
+IF(INCLUDES(Cliente__r.Propiedades__c, &quot;QryGroup4&quot;), &quot;HES (HOJA DE ENTRADA DE SERVICIO),&quot;, null) +
+
+IF(INCLUDES(Cliente__r.Propiedades__c, &quot;QryGroup5&quot;), &quot;NÚMERO DE RECEPCIÓN (802),&quot;, null) +
+IF(INCLUDES(Cliente__r.Propiedades__c, &quot;QryGroup6&quot;), &quot;CLIENTE CON ESTADO DE PAGO,&quot;, null) +
+IF(INCLUDES(Cliente__r.Propiedades__c, &quot;QryGroup7&quot;), &quot;SOLO PARA FALABELLA (EN CAMPO 52 NÚMERO DE HES),&quot;, null) +
+IF(INCLUDES(Cliente__r.Propiedades__c, &quot;QryGroup8&quot;), &quot;NUMERO DE PROVEEDOR (NFP),&quot;, null) +
+
+IF(INCLUDES(Cliente__r.Propiedades__c, &quot;QryGroup9&quot;), &quot;NOMBRE COMPRADOR (AGREGAR EN EL CAMPO COMENTARIO),&quot;, null) +
+IF(INCLUDES(Cliente__r.Propiedades__c, &quot;QryGroup10&quot;), &quot;NUMERO DE MATERIAL&quot;, null)</formula>
+    <label>Propiedades</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

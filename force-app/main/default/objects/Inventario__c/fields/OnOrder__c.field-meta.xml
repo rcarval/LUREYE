@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OnOrder__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Producto(s) fuera de stock, pero ya ingresado(s) por orden de compra.</inlineHelpText>
+    <label>En transito</label>
+    <precision>14</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

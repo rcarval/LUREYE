@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Envío de custon notification al aprobador</description>
+        <name>SendNotificationToAprobal</name>
+        <label>SendNotificationToAprobal</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <faultConnector>
+            <targetReference>Assigment_Error</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <elementReference>Get_CustomNotificationType.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>VarC_IdAprobador</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderId</name>
+            <value>
+                <elementReference>Obtener_Detalle_del_Quote.Quote.OwnerId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>A quote has entered the approval process</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>Estimado aprobador, Se requiere su aprobación para un descuento del {!Obtener_Detalle_del_Quote.Descuento__c}%.  Relacionado con el presupuesto {!Obtener_Detalle_del_Quote.Quote.Name}, ingresa a la partida de presupuesto dando clic aquí.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <elementReference>VarR_QuoteLineItem.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>customNotificationAction</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Guarda un mensaje de error en variable de texto en caso de que no se logre notificar al aprobador</description>
+        <name>Assigment_Error</name>
+        <label>Assigment Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_error</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>No fue posible notificar al usuario aprobador </stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Asigna a una variable de colección él, id del usuario aprobador</description>
+        <name>Assignment</name>
+        <label>Assignment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>VarC_IdAprobador</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Obtener_Usuario_Aprobador.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Obtener_Detalle_del_Quote</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Válida que el descuento diligenciado es &gt; = 25 %</description>
+        <name>Descuento_25</name>
+        <label>Descuento &gt; = 25%</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Si2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>VarT_Descuento</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_CustomNotificationType</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>valida que la variable de aprobador no está vacía</description>
+        <name>Existe_aprobador</name>
+        <label>Existe aprobador</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Si</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Obtener_Usuario_Aprobador.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assignment</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Válida que el custon notification exista</description>
+        <name>Existe_Custom_notification</name>
+        <label>Existe Custom notification</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Si3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_CustomNotificationType.DeveloperName</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SendNotificationToAprobal</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>valida que la variable no este vacía</description>
+        <name>Existe_partida_de_presupuesto</name>
+        <label>Existe partida de presupuesto</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Si1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>VarT_QuoteId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Descuento_25</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <description>Genera y envía una notificación personalizada (Custom Notification) al aprobador.</description>
+    <environments>Default</environments>
+    <interviewLabel>Subflujo Enviar Notificación Aprobador {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Subflujo Enviar Notificación Aprobador</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Obtiene el custom notification standar</description>
+        <name>Get_CustomNotificationType</name>
+        <label>Get_CustomNotificationType</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Existe_Custom_notification</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>StandardNotification</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CustomNotificationType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Recupera información del Quote o partida para mostrar en la notificación.</description>
+        <name>Obtener_Detalle_del_Quote</name>
+        <label>Obtener Detalle del Quote</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Existe_partida_de_presupuesto</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>VarT_QuoteId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>QuoteLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Recupera la información del usuario aprobador para usar su nombre o email en la notificación.</description>
+        <name>Obtener_Usuario_Aprobador</name>
+        <label>Obtener Usuario Aprobador</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Existe_aprobador</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>VarT_AprobadorId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Obtener_Usuario_Aprobador</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>variable de colección que guarda el id del aprobador</description>
+        <name>VarC_IdAprobador</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Variable de registro que almacena la partida de presupuesto</description>
+        <name>VarR_QuoteLineItem</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>QuoteLineItem</objectType>
+    </variables>
+    <variables>
+        <description>Recibe el ID del usuario aprobador del flujo orquestador.</description>
+        <name>VarT_AprobadorId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Recibe el valor del descuento que disparó el flujo orquestador.</description>
+        <name>VarT_Descuento</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Guarda un mensaje de error por si no se puede enviar el custon notification útil parea el debug</description>
+        <name>VarT_error</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Recibe el ID de la partida de presupuesto del orquestador.</description>
+        <name>VarT_QuoteId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QLBI__c</fullName>
+    <defaultValue>1</defaultValue>
+    <description>Número de línea del ítem de la orden de compra del cliente
+EXX_FE_QLIB en SAP</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Número de línea del ítem de la orden de compra del cliente</inlineHelpText>
+    <label>QLBI</label>
+    <precision>10</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

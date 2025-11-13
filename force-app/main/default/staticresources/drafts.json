@@ -1,0 +1,21 @@
+{
+    "odata.metadata": "https://lureye.exxiscloud.com:50000/b1s/v1/$metadata#Drafts/@Element",
+    "odata.etag": "W/\"356A192B7913B04C54574D18C28D46E6395428AB\"",
+    "DocEntry": 112,
+    "DocNum": 20000005,
+    "DocType": "dDocument_Items",
+    "HandWritten": "tNO",
+    "Printed": "psNo",
+    "DocDate": "2022-11-30",
+    "DocDueDate": "2022-12-30",
+    "CardCode": "C26082018",
+    "CardName": "COMUNIDAD EDIFICIO BICE VIDA",
+    "Address": "AV. PROVIDENCIA N°1806\r\rSANTIAGO\rCHILE",
+    "NumAtCard": null,
+	"AuthorizationStatus": "dasPending",
+    "DocTotal": 1785000.0,
+    "AttachmentEntry": null,
+    "DocCurrency": "CLP",
+    "DocRate": 1.0,
+    "Reference1": null
+}

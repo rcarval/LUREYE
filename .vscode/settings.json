@@ -1,0 +1,30 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/.sf": true,
+    "**/.sfdx": true
+  },
+  "xml.preferences.showSchemaDocumentationType": "none",
+  
+  // Asociaciones de archivos Apex
+  "files.associations": {
+    "*.cls": "apex",
+    "*.trigger": "apex",
+    "*.page": "visualforce",
+    "*.component": "visualforce"
+  },
+  
+  // Formateo Apex
+  "[apex]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4
+  },
+  
+  // Codebase Indexing para búsquedas rápidas
+  "cursor.indexing.enabled": true,
+  
+  // Auto-save para sincronización rápida
+  "files.autoSave": "onFocusChange"
+}

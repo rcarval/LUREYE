@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GE_AprobadorDescuento__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Aprobador Descuento</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3 OR 7 OR (4 OR 5 OR 6))</booleanFilter>
+        <filterItems>
+            <field>User.IsActive</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <filterItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>00e5f000001VD4EAAW</value>
+        </filterItems>
+        <filterItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>00e5f000001VD49AAG</value>
+        </filterItems>
+        <filterItems>
+            <field>$User.Id</field>
+            <operation>equals</operation>
+            <value>0055f000009AqXbAAK</value>
+        </filterItems>
+        <filterItems>
+            <field>$User.Id</field>
+            <operation>equals</operation>
+            <value>0055f000009AqXlAAK</value>
+        </filterItems>
+        <filterItems>
+            <field>$User.Id</field>
+            <operation>equals</operation>
+            <value>0055f000009AqXqAAK</value>
+        </filterItems>
+        <filterItems>
+            <field>User.UserRoleId</field>
+            <operation>equals</operation>
+            <value>00E5f000001ABDsEAO</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Items_de_cotizacion</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

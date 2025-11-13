@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Propiedades__c</fullName>
+    <label>Propiedades</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>QryGroup1</fullName>
+                <default>false</default>
+                <label>SERVICIO BASICO</label>
+            </value>
+            <value>
+                <fullName>QryGroup2</fullName>
+                <default>false</default>
+                <label>ORDEN DE COMPA (801)</label>
+            </value>
+            <value>
+                <fullName>QryGroup3</fullName>
+                <default>false</default>
+                <label>QBLI (ITEM ORDEN DE COMPRA)</label>
+            </value>
+            <value>
+                <fullName>QryGroup4</fullName>
+                <default>false</default>
+                <label>HES (HOJA DE ENTRADA DE SERVICIO)</label>
+            </value>
+            <value>
+                <fullName>QryGroup5</fullName>
+                <default>false</default>
+                <label>NÚMERO DE RECEPCIÓN (802)</label>
+            </value>
+            <value>
+                <fullName>QryGroup6</fullName>
+                <default>false</default>
+                <label>CLIENTE CON ESTADO DE PAGO</label>
+            </value>
+            <value>
+                <fullName>QryGroup7</fullName>
+                <default>false</default>
+                <label>SOLO PARA FALABELLA (EN CAMPO 52 NÚMERO DE HES)</label>
+            </value>
+            <value>
+                <fullName>QryGroup8</fullName>
+                <default>false</default>
+                <label>NUMERO DE PROVEEDOR (NFP)</label>
+            </value>
+            <value>
+                <fullName>QryGroup9</fullName>
+                <default>false</default>
+                <label>NOMBRE COMPRADOR (AGREGAR EN EL CAMPO COMENTARIO)</label>
+            </value>
+            <value>
+                <fullName>QryGroup10</fullName>
+                <default>false</default>
+                <label>NUMERO DE MATERIAL</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

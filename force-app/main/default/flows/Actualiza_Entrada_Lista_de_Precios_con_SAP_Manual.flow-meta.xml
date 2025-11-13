@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Sincronizar_Entrada_Lista_De_Precios</name>
+        <label>Sincronizar Entrada Lista De Precios</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <actionName>LUREYE_PriceListItems_SAP</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <nameSegment>LUREYE_PriceListItems_SAP</nameSegment>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Flujo creado para ser ejecutado semanalmente para actualizar las entradas de las listas de precios con SAP, incluye inserción de productos en caso de que no exista</description>
+    <environments>Default</environments>
+    <interviewLabel>Actualiza Entrada Lista de Precios con SAP Manual {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Actualiza Entrada Lista de Precios con SAP Manual</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Sincronizar_Entrada_Lista_De_Precios</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+</Flow>

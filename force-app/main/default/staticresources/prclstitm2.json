@@ -1,0 +1,13 @@
+{
+    "odata.metadata": "https://lureye.exxiscloud.com:50000/b1s/v1/$metadata#SAPB1.SQLQueryResult",
+    "SqlText": "",
+    "value": [
+        {
+            "Currency": "CLP",
+            "Factor": 1.0,
+            "ItemCode": "TE012LFT",
+            "ListNum": 1,
+            "Price": 2400000.0
+        }
+    ]
+}

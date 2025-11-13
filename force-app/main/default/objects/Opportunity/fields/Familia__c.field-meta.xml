@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Familia__c</fullName>
+    <label>Familia</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Motor</fullName>
+                <default>false</default>
+                <label>Motor</label>
+            </value>
+            <value>
+                <fullName>Transmisión de potencia</fullName>
+                <default>false</default>
+                <label>Transmisión de potencia</label>
+            </value>
+            <value>
+                <fullName>Equipos de levante</fullName>
+                <default>false</default>
+                <label>Equipo de Levante</label>
+            </value>
+            <value>
+                <fullName>Automatizacion</fullName>
+                <default>false</default>
+                <label>Automatización</label>
+            </value>
+            <value>
+                <fullName>Proyectos</fullName>
+                <default>false</default>
+                <label>Proyectos</label>
+            </value>
+            <value>
+                <fullName>Variador de frecuencia</fullName>
+                <default>false</default>
+                <label>Variador de Frecuencia</label>
+            </value>
+            <value>
+                <fullName>Control y Maniobra</fullName>
+                <default>false</default>
+                <label>Control y Maniobra</label>
+            </value>
+            <value>
+                <fullName>Instrumentación</fullName>
+                <default>false</default>
+                <label>Instrumentación</label>
+            </value>
+            <value>
+                <fullName>Generador 12 a 50 KVA</fullName>
+                <default>false</default>
+                <label>Generador 12 a 50 KVA</label>
+            </value>
+            <value>
+                <fullName>Generador 50 a 100 KVA</fullName>
+                <default>false</default>
+                <label>Generador 50 a 100 KVA</label>
+            </value>
+            <value>
+                <fullName>Generador 100 a 250 KVA</fullName>
+                <default>false</default>
+                <label>Generador 100 a 250 KVA</label>
+            </value>
+            <value>
+                <fullName>Generador 275 a 500 KVA</fullName>
+                <default>false</default>
+                <label>Generador 275 a 500 KVA</label>
+            </value>
+            <value>
+                <fullName>Generador 500 a 1000 KVA</fullName>
+                <default>false</default>
+                <label>Generador 500 a 1000 KVA</label>
+            </value>
+            <value>
+                <fullName>Generador 1000 a 2000 KVA</fullName>
+                <default>false</default>
+                <label>Generador 1000 a 2000 KVA</label>
+            </value>
+            <value>
+                <fullName>Generador 2000 a 4000 KVA</fullName>
+                <default>false</default>
+                <label>Generador 2000 a 4000 KVA</label>
+            </value>
+            <value>
+                <fullName>Compresor nuevo</fullName>
+                <default>false</default>
+                <label>Compresor nuevo</label>
+            </value>
+            <value>
+                <fullName>Repuesto de compresor</fullName>
+                <default>false</default>
+                <label>Repuesto de compresor</label>
+            </value>
+            <value>
+                <fullName>Mantención de compresor</fullName>
+                <default>false</default>
+                <label>Mantención de compresor</label>
+            </value>
+            <value>
+                <fullName>Mantención de generador</fullName>
+                <default>false</default>
+                <label>Mantención de generador</label>
+            </value>
+            <value>
+                <fullName>Manual de generador</fullName>
+                <default>false</default>
+                <label>Manual de generador</label>
+            </value>
+            <value>
+                <fullName>Reparación de generador</fullName>
+                <default>false</default>
+                <label>Reparación de generador</label>
+            </value>
+            <value>
+                <fullName>Repuesto de generador</fullName>
+                <default>false</default>
+                <label>Repuesto de generador</label>
+            </value>
+            <value>
+                <fullName>Tablero de transferencia automática</fullName>
+                <default>false</default>
+                <label>Tablero de transferencia automática</label>
+            </value>
+            <value>
+                <fullName>Visita técnica generador</fullName>
+                <default>false</default>
+                <label>Visita técnica generador</label>
+            </value>
+            <value>
+                <fullName>Ficha tecnica generador</fullName>
+                <default>false</default>
+                <label>Ficha tecnica generador</label>
+            </value>
+            <value>
+                <fullName>Insumos para generador</fullName>
+                <default>false</default>
+                <label>Insumos para generador</label>
+            </value>
+            <value>
+                <fullName>Kit de mantención</fullName>
+                <default>false</default>
+                <label>Kit de mantención</label>
+            </value>
+            <value>
+                <fullName>Proyecto de Generación</fullName>
+                <default>false</default>
+                <label>Proyecto de Generación</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

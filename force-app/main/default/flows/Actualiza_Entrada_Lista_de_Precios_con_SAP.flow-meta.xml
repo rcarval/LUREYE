@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Sincronizar_Entrada_Lista_De_Precios</name>
+        <label>Sincronizar Entrada Lista De Precios</label>
+        <locationX>176</locationX>
+        <locationY>276</locationY>
+        <actionName>LUREYE_PriceListItems_SAP</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>LUREYE_PriceListItems_SAP</nameSegment>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Flujo Automático creado para ser ejecutado semanalmente para actualizar las entradas de las listas de precios con SAP, incluye inserción de productos en caso de que no exista</description>
+    <environments>Default</environments>
+    <interviewLabel>Actualiza Entrada Lista de Precios con SAP {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Actualiza Entrada Lista de Precios con SAP</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Sincronizar_Entrada_Lista_De_Precios</targetReference>
+        </connector>
+        <object>PricebookEntry</object>
+        <schedule>
+            <frequency>Weekly</frequency>
+            <startDate>2022-11-18</startDate>
+            <startTime>02:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

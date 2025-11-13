@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UnidadNegocio__c</fullName>
+    <label>Unidad de Negocio</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Electromecánica</fullName>
+                <default>false</default>
+                <label>Electromecánica</label>
+            </value>
+            <value>
+                <fullName>Generación</fullName>
+                <default>false</default>
+                <label>Generación</label>
+            </value>
+            <value>
+                <fullName>Generación Servicios</fullName>
+                <default>false</default>
+                <label>Generación Servicios</label>
+            </value>
+            <value>
+                <fullName>Lagsa TI</fullName>
+                <default>false</default>
+                <label>Lagsa TI</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

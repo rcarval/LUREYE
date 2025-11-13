@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PrecioEstimado__c</fullName>
+    <description>Valor estimado, usado en oportunidades No-Mix</description>
+    <inlineHelpText>Valor opcional estimado, usado en oportunidades No-Mix</inlineHelpText>
+    <label>Precio Estimado</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

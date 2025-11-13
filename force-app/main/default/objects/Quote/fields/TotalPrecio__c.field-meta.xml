@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TotalPrecio__c</fullName>
+    <formula>if (Opportunity.Owner.CodigoUN__c = &quot;EM&quot;  &amp;&amp;  CantidadBOM__c &gt; 0, 
+Subtotal * (1-DescuentoGlobal__c) * CantidadBOM__c, 
+Subtotal * (1-DescuentoGlobal__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

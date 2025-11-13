@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Verifica que los datos del registro que activa el flujo (Triggered Record) no estén nulos.</description>
+        <name>Existen_Datos_del_Quote_Line_Item</name>
+        <label>Existen Datos del Quote Line Item</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Si</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.GE_AprobadorDescuento__r.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Descuento__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Enviar_Notificaci_n_Aprobador</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <description>Este flujo notifica al aprobador GE de la partida de presupuesto mediante una notificación personalizada (Custom Notification).
+Una vez el aprobador realiza la aprobación, se envía una nueva notificación al propietario del registro para que continúe con el proceso funcional correspondiente, que incluye la actualización de los campos en la partida de presupuesto de manera manual.</description>
+    <environments>Default</environments>
+    <interviewLabel>Aprobación de Cotización {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Aprobación de Descuento Cotización</label>
+    <orchestratedStages>
+        <description>Invoca el flujo de envío de notificación al propietario del registro (Partida de Presupuesto).</description>
+        <name>Enviar_Aprobacion</name>
+        <label>Enviar Aprobación</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <exitConditionLogic>and</exitConditionLogic>
+        <stageSteps>
+            <description>Invoca el flujo encargado de notificar al propietario del registro (Owner).</description>
+            <name>Enviar_Aprobaci_n_Owner</name>
+            <actionName>Subflujo_Enviar_Notificaci_n_Owner</actionName>
+            <actionType>stepBackground</actionType>
+            <canAssigneeEdit>false</canAssigneeEdit>
+            <debugSimulateStep>false</debugSimulateStep>
+            <entryConditionLogic>and</entryConditionLogic>
+            <exitConditionLogic>and</exitConditionLogic>
+            <inputParameters>
+                <name>VarT_OwnerId</name>
+                <value>
+                    <elementReference>$Record.Quote.Owner:User.Id</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>VarT_QuoteId</name>
+                <value>
+                    <elementReference>$Record.Id</elementReference>
+                </value>
+            </inputParameters>
+            <label>Enviar Aprobación Owner</label>
+            <requiresAsyncProcessing>false</requiresAsyncProcessing>
+            <runAsUser>false</runAsUser>
+            <shouldLock>false</shouldLock>
+            <stepSubtype>BackgroundStep</stepSubtype>
+        </stageSteps>
+    </orchestratedStages>
+    <orchestratedStages>
+        <description>Invoca el subflujo responsable de enviar la notificación al aprobador.</description>
+        <name>Enviar_Notificaci_n_Aprobador</name>
+        <label>Enviar Notificación Aprobador</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Enviar_Aprobacion</targetReference>
+        </connector>
+        <exitConditionLogic>and</exitConditionLogic>
+        <stageSteps>
+            <description>Genera y envía una notificación personalizada (Custom Notification) al aprobador.</description>
+            <name>Notificaci_n_de_Aprobaci_n</name>
+            <actionName>Subflujo_Enviar_Notificaci_n_Aprobador</actionName>
+            <actionType>stepBackground</actionType>
+            <canAssigneeEdit>false</canAssigneeEdit>
+            <debugSimulateStep>false</debugSimulateStep>
+            <entryConditionLogic>and</entryConditionLogic>
+            <exitConditionLogic>and</exitConditionLogic>
+            <inputParameters>
+                <name>VarR_QuoteLineItem</name>
+                <value>
+                    <elementReference>$Record</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>VarT_AprobadorId</name>
+                <value>
+                    <elementReference>$Record.GE_AprobadorDescuento__c</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>VarT_Descuento</name>
+                <value>
+                    <elementReference>$Record.Descuento__c</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>VarT_QuoteId</name>
+                <value>
+                    <elementReference>$Record.Id</elementReference>
+                </value>
+            </inputParameters>
+            <label>Notificación de Aprobación</label>
+            <requiresAsyncProcessing>false</requiresAsyncProcessing>
+            <runAsUser>false</runAsUser>
+            <shouldLock>false</shouldLock>
+            <stepSubtype>BackgroundStep</stepSubtype>
+        </stageSteps>
+        <stageSteps>
+            <description>Ejecuta la invocación del flujo de aprobación correspondiente.</description>
+            <name>Solicitar_aprobaci_n</name>
+            <actionName>Approvals_Workflow_Evaluate_Approval_Requests2</actionName>
+            <actionType>stepApproval</actionType>
+            <assignees>
+                <assignee>
+                    <stringValue>GE_Servicios</stringValue>
+                </assignee>
+                <assigneeType>Group</assigneeType>
+            </assignees>
+            <canAssigneeEdit>true</canAssigneeEdit>
+            <debugSimulateStep>false</debugSimulateStep>
+            <entryConditionLogic>and</entryConditionLogic>
+            <exitConditionLogic>and</exitConditionLogic>
+            <inputParameters>
+                <name>ActionInput__RecordId</name>
+                <value>
+                    <elementReference>$Record.Id</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>ActionInput__CustomEmailSubject</name>
+            </inputParameters>
+            <inputParameters>
+                <name>ActionInput__CustomEmailBody</name>
+            </inputParameters>
+            <label>Solicitar aprobación</label>
+            <outputConfigParams>
+                <name>approvalComments</name>
+                <value xsi:nil="true"/>
+            </outputConfigParams>
+            <outputConfigParams>
+                <name>approvalDecision</name>
+                <value xsi:nil="true"/>
+            </outputConfigParams>
+            <requiresAsyncProcessing>false</requiresAsyncProcessing>
+            <runAsUser>false</runAsUser>
+            <shouldLock>true</shouldLock>
+            <stepSubtype>ApprovalStep</stepSubtype>
+        </stageSteps>
+    </orchestratedStages>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>ApprovalWorkflow</processType>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Existen_Datos_del_Quote_Line_Item</targetReference>
+        </connector>
+        <filterLogic>(1 AND 3) OR (1 AND 2 AND 3)</filterLogic>
+        <filters>
+            <field>Descuento__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <numberValue>25.0</numberValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Descuento__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>GE_AprobadorDescuento__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>QuoteLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>VarT_UserId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

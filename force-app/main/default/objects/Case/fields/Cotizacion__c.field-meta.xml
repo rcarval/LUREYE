@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cotizacion__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Cotización</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Quote.Estado_en_SAP__c</field>
+            <operation>equals</operation>
+            <value>Orden de Venta Creada</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Quote</referenceTo>
+    <relationshipLabel>Casos</relationshipLabel>
+    <relationshipName>Casos</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

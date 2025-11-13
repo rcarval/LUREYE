@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FechaEntregaBOM__c</fullName>
+    <description>Fecha entrega BOM</description>
+    <inlineHelpText>Fecha entrega BOM</inlineHelpText>
+    <label>Fecha Entrega</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

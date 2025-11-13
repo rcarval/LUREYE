@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Evaluar_Tipo_de_Oportunidad</name>
+        <label>Evaluar Tipo de Oportunidad</label>
+        <locationX>374</locationX>
+        <locationY>492</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Evaluar_Tipo_de_Oportunidad</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Obtener_La_Opp_de_la_Cotizacion.RecordTypeId</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Obtener_Record_Type.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Estado_en_SAP__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Orden de Venta Creada</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Obtener_La_Opp_de_la_Cotizacion.StageName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Cerrada Ganada</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Obtener_La_Opp_de_la_Cotizacion.StageName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Cerrada Perdida</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Actualizar_Oportu</targetReference>
+            </connector>
+            <label>No es de tipo GE Servicios</label>
+        </rules>
+    </decisions>
+    <description>Cuando la OV es creada en SAP a los 5 dias la oportunidad vinculada pasa a cerrada ganada, salvo para las oportunidades de GE Servicios</description>
+    <environments>Default</environments>
+    <interviewLabel>OV Creada - Actualiza Oportunidad a cerrda ganada {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>OV Creada - Actualiza Oportunidad a cerrda ganada</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Obtener_La_Opp_de_la_Cotizacion</name>
+        <label>Obtener La Opp de la Cotizacion</label>
+        <locationX>374</locationX>
+        <locationY>384</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Evaluar_Tipo_de_Oportunidad</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.OpportunityId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Ya que este flujo no aplica para este tipo de oportunidad, validaremos que eeste registro no tenga este recordType</description>
+        <name>Obtener_Record_Type</name>
+        <label>Obtener Id tipo de registro Ge Servicios</label>
+        <locationX>374</locationX>
+        <locationY>276</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Obtener_La_Opp_de_la_Cotizacion</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GEServicios</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Actualizamos la oportunidad a cerrda ganada</description>
+        <name>Actualizar_Oportu</name>
+        <label>Actualizar Opp</label>
+        <locationX>242</locationX>
+        <locationY>600</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Obtener_La_Opp_de_la_Cotizacion.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <stringValue>Cerrada Ganada</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Fecha_Hora_OV_creada_en_SAP__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Quote</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <name>Actualizar_Opp</name>
+            <connector>
+                <targetReference>Obtener_Record_Type</targetReference>
+            </connector>
+            <label>Actualizar Opp</label>
+            <offsetNumber>5</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>Fecha_Hora_OV_creada_en_SAP__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

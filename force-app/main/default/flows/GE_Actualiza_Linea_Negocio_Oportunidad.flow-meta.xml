@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Get</name>
+        <label>Get Linea de Negocio</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <assignmentItems>
+            <assignToReference>lineaNegocioUsuario</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.CreatedBy.Negocio__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>lineaNegocioOportunidad</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.LineaDeNegocio__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Evalua_Linea_de_Negocio_Oportunidad</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <name>NO_APLICA_VALUE_PICKLIST</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>NO APLICA</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>POR_DEFECTO_VALUE_PICKLIST</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>POR DEFECTO</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Setea el valor del Negocio del usuario en la linea de negocio de la oportunidad cuando esta tiene el valor por defecto &quot;Por Defecto&quot;</description>
+        <name>Evalua_Linea_de_Negocio_Oportunidad</name>
+        <label>Evalua Linea de Negocio Oportunidad</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>LN Oportunidad válido</defaultConnectorLabel>
+        <rules>
+            <name>LN_Oportunidad_Default_Value</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>lineaNegocioOportunidad</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>POR_DEFECTO_VALUE_PICKLIST</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>lineaNegocioUsuario</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Actualiza_Linea_de_Negocio_Oportunidad</targetReference>
+            </connector>
+            <label>LN Oportunidad Default Value</label>
+        </rules>
+    </decisions>
+    <description>Cuando se crea una Oportunidad, el campo Línea de Negocio se actualiza de acuerdo al Negocio que tenga el usuario.</description>
+    <environments>Default</environments>
+    <interviewLabel>GE - {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>GE- Nueva Oportunidad Actualiza Linea de Negocio</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Actualiza_Linea_de_Negocio_Oportunidad</name>
+        <label>Actualiza Linea de Negocio Oportunidad</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>LineaDeNegocio__c</field>
+            <value>
+                <elementReference>lineaNegocioUsuario</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Obtiene el valor de la linea de negocio seleccionado por el usuario al momento de crear la oportunidad</description>
+        <name>lineaNegocioOportunidad</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Línea de negocio que tiene pre-cargado el usuario</description>
+        <name>lineaNegocioUsuario</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

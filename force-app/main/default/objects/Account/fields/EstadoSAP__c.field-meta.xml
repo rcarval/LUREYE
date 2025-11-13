@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EstadoSAP__c</fullName>
+    <label>Estado SAP</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Creado sin validar</fullName>
+                <default>true</default>
+                <label>Creado sin validar</label>
+            </value>
+            <value>
+                <fullName>Validado por SAP</fullName>
+                <default>false</default>
+                <label>Validado por SAP</label>
+            </value>
+            <value>
+                <fullName>No Validado por SAP</fullName>
+                <default>false</default>
+                <label>No Validado por SAP</label>
+            </value>
+            <value>
+                <fullName>Cliente Inactivo en SAP</fullName>
+                <default>false</default>
+                <label>Cliente Inactivo en SAP</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

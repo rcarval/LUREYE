@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EM_MotivoRechazo__c</fullName>
+    <label>Motivo Rechazo</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>EM_Aprobar__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Falta Información</fullName>
+                <default>false</default>
+                <label>Falta Información</label>
+            </value>
+            <value>
+                <fullName>No cubre garantía</fullName>
+                <default>false</default>
+                <label>No cubre garantía</label>
+            </value>
+            <value>
+                <fullName>Garantía fuera de plazo</fullName>
+                <default>false</default>
+                <label>Garantía fuera de plazo</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Rechazado</controllingFieldValue>
+            <valueName>Falta Información</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rechazado</controllingFieldValue>
+            <valueName>No cubre garantía</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rechazado</controllingFieldValue>
+            <valueName>Garantía fuera de plazo</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

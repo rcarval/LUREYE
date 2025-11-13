@@ -1,0 +1,21 @@
+<template>
+    <lightning-card>
+        <div if:true={isLoading} class="slds-is-relative">
+            <div class="slds-spinner_container">
+                <div role="status" class="slds-spinner slds-spinner_medium">
+                    <span class="slds-assistive-text">Cargando</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </div>        
+        <div style="height: 300px; overflow-y: auto;">
+            <lightning-datatable
+                key-field="Id"
+                data={opportunityData}
+                columns={columns}
+                onsort={updateColumnSorting}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

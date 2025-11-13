@@ -1,0 +1,35 @@
+# Directorios Salesforce temporales
+.sfdx/
+.sf/
+.localdevserver/
+
+# Node modules
+node_modules/
+
+# Archivos compilados y metadata XML
+**/*.js-meta.xml
+**/*.cls-meta.xml
+**/*.trigger-meta.xml
+**/*.page-meta.xml
+**/*.component-meta.xml
+
+# Static resources grandes (imágenes)
+force-app/main/default/staticresources/*.gif
+force-app/main/default/staticresources/*.png
+force-app/main/default/staticresources/*.jpeg
+force-app/main/default/staticresources/*.jpg
+force-app/main/default/staticresources/*.webp
+
+# Archivos JSON de ejemplo/mock en static resources
+force-app/main/default/staticresources/*.json
+
+# Logs y archivos temporales
+*.log
+.DS_Store
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+
+

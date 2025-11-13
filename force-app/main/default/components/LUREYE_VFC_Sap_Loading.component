@@ -1,0 +1,35 @@
+<apex:component >
+    <apex:actionStatus id="loadStatus" onstart="startLoading();" onstop="stopLoading();">
+        <apex:facet name="stop">
+            <apex:outputPanel >
+            </apex:outputPanel>
+        </apex:facet>
+        <apex:facet name="start">
+            
+            <apex:outputPanel >
+                <center>
+                    <div class="slds-spinner_container" style="width:100%;height:100%;position:fixed;z-index:999999;">
+                        <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand" style="padding:60px;">
+                            <img src="{!URLFOR($Resource.lureye_cargando)}" style="height:50px;width:50px"/>
+                            <br/>
+                            <span class="slds-assistive-text">... Sincronizando, por favor espere ...</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>                              
+                    </div>
+                </center>
+            </apex:outputPanel>
+            
+        </apex:facet>
+    </apex:actionStatus>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        function startLoading() {
+            $('#load_scrl').css('top', $(document).scrollTop() + 200);
+            $('.loadingBox').show();
+        }
+        function stopLoading() {
+            $('.loadingBox').hide();
+        }
+    </script>
+</apex:component>

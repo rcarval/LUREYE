@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProductoNoMix__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Selecciona este campo, si este producto es o fue No-Mix</inlineHelpText>
+    <label>Producto No-Mix</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

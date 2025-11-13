@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>NotificarAprobador</name>
+        <label>Notificar Aprobador</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <actionName>NewTask</actionName>
+        <actionType>quickAction</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>OwnerId</name>
+            <value>
+                <elementReference>$Record.GE_AprobadorDescuento__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Subject</name>
+            <value>
+                <stringValue>Aprobar Descuento</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Description</name>
+            <value>
+                <stringValue>Solicitud para ampliar el rango de descuento sobre 25% en producto: {!$Record.Product2.Name} </stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>WhatId</name>
+            <value>
+                <elementReference>$Record.Quote.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>NewTask</nameSegment>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <interviewLabel>GE - Notificar Aprobador Up25 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>GE - Notificar Aprobador Up25</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>NotificarAprobador</targetReference>
+        </connector>
+        <filterFormula>!ISNULL({!$Record.GE_AprobadorDescuento__r.Id}) &amp;&amp; 
+ISCHANGED({!$Record.GE_AprobadorDescuento__r.Id})</filterFormula>
+        <object>QuoteLineItem</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

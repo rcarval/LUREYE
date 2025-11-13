@@ -1,0 +1,86 @@
+<apex:page standardController="Quote" extensions="LUREYE_Drafts_SAP" 
+    showHeader="false" applyHtmlTag="false" applyBodyTag="false" 
+    docType="html-5.0" lightningStylesheets="true" 
+    showQuickActionVfHeader="false">  
+    <apex:slds />
+    <c:LUREYE_VFC_Sap_Loading />
+    
+    <apex:form id="form1">
+        <!-- Función para ejecutar el método de Apex con rerender -->
+        <apex:actionFunction action="{!CrearDraftsPage}" name="sinc" status="loadStatus" rerender="form1, systemMessages"/>
+
+        <!-- Contenedor para los mensajes de error personalizados -->
+        <div id="errorMessages" style="display: none; color: #721c24; font-weight: bold; border: 1px solid #f5c6cb; background-color: #f8d7da; border-radius: 5px; width: 100%; height: auto; overflow: hidden; box-sizing: border-box; padding: 20px;">
+            <h2 style="color: #721c24; margin-bottom: 10px;">Campos Obligatorios para SAP</h2>
+            <ul id="errorList" style="list-style-type: disc; padding-left: 20px; margin: 0;"></ul>
+        </div>
+
+        <!-- Contenedor para mensajes de error del sistema -->
+        <div style="margin-top: 20px;">
+            <apex:pageMessages id="systemMessages"/>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <!-- Botón para volver a la cotización si hay error -->
+            <apex:commandButton value="Volver a la cotización" action="{!volver}" rendered="{!mostrarBtnVolver}" id="volverBtn" style="display: none;"/>
+        </div>
+    </apex:form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            validateAndSubmit();
+        });
+
+        function validateAndSubmit() {
+            // Utilizando JSENCODE para evitar problemas con caracteres especiales
+            const codigoUN = '{!JSENCODE(Quote.CodigoUN__c)}';
+            const indicacionesLogisticas = '{!JSENCODE(Quote.IndicacionesLogisticas__c)}';
+            const nOrdenCompra = '{!JSENCODE(Quote.NOrdenCompra__c)}';
+            const glosa = '{!JSENCODE(Quote.Glosa__c)}';
+            const lineItemCount = parseInt('{!Quote.LineItemCount}', 10);
+
+            const errorMessages = [];
+
+            // Normalización del campo para evitar problemas con saltos de línea
+            const normalizedIndicacionesLogisticas = indicacionesLogisticas ? indicacionesLogisticas.replace(/[\r\n]+/g, ' ').trim() : '';
+
+            // Validaciones de campos
+            if (isNaN(lineItemCount) || lineItemCount <= 0) {
+                errorMessages.push('Debe haber al menos un ítem en la cotización.');
+            }
+            if (!nOrdenCompra || nOrdenCompra.trim() === "") {
+                errorMessages.push('El campo "N° Orden de Compra" no ha sido ingresado.');
+            }
+            if (!glosa || glosa.trim() === "") {
+                errorMessages.push('El campo "Glosa" no ha sido ingresado.');
+            }
+            if (codigoUN === 'EM' && (!normalizedIndicacionesLogisticas || normalizedIndicacionesLogisticas === "")) {
+                errorMessages.push('El campo de "Indicaciones Logísticas" no ha sido ingresado.');
+            }
+
+            if (errorMessages.length > 0) {
+                displayErrors(errorMessages);
+                document.getElementById('volverBtn').style.display = 'inline-block';
+                return;
+            }
+            
+            // Si no hay errores, ejecutar el método Apex y mostrar mensajes de sistema si hay errores
+            sinc();
+        }
+
+        function displayErrors(messages) {
+            const errorDiv = document.getElementById('errorMessages');
+            const errorList = document.getElementById('errorList');
+            errorList.innerHTML = '';
+
+            messages.forEach(msg => {
+                const li = document.createElement('li');
+                li.textContent = msg;
+                li.style.color = 'red';
+                errorList.appendChild(li);
+            });
+
+            errorDiv.style.display = 'block';
+        }
+    </script>
+</apex:page>

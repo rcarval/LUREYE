@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bodega__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    OR(Quote.Opportunity.Owner.CodigoUN__c= &apos;GE&apos;, Quote.Opportunity.Owner.CodigoUN__c= &apos;SE&apos;), &apos;LECEREP&apos;,
+    IF(Quote.Opportunity.Owner.CodigoUN__c= &apos;EM&apos;, &apos;BSTGO_PP&apos;,null)
+)</formula>
+    <label>Bodega</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

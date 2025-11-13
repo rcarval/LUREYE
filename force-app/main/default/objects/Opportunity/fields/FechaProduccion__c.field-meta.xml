@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FechaProduccion__c</fullName>
+    <description>Campo para generación, es la fecha que editara el encargado de producción para responder a una oportunidad en negoción a punto de cerrarse para estar ganada.</description>
+    <inlineHelpText>Editable por 2 días después de su creación.</inlineHelpText>
+    <label>Fecha de Producción</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

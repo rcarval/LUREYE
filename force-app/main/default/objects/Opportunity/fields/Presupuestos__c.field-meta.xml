@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Presupuestos__c</fullName>
+    <description>Saber cuantos presupuestos creados tiene la oportunidad</description>
+    <inlineHelpText>Presupuestos asociados a la oportunidad</inlineHelpText>
+    <label>Presupuestos</label>
+    <summaryForeignKey>Quote.OpportunityId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

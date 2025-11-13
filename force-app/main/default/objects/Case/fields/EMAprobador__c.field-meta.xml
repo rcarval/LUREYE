@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EMAprobador__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Nombre de Jefe de Venta</description>
+    <label>Jefe de Venta</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <filterItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>&apos;00e5f000000vTSeAAM&apos;</value>
+        </filterItems>
+        <filterItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>&apos;00e5f000000vUSIAA2&apos;</value>
+        </filterItems>
+        <filterItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>&apos;00e5f000002uRWhAAM&apos;</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Casos</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

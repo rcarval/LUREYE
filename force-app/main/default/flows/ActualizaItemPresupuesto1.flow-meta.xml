@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>asignaDescripcionItemOportunidad</name>
+        <label>Asigna Descripción desde Item de Oportunidad</label>
+        <locationX>314</locationX>
+        <locationY>575</locationY>
+        <assignmentItems>
+            <assignToReference>valDescripcion</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.OpportunityLineItem.Description</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ActualizaDescripcion</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>asignaDescripcionProducto1</name>
+        <label>Asigna Descripción desde Producto</label>
+        <locationX>578</locationX>
+        <locationY>455</locationY>
+        <assignmentItems>
+            <assignToReference>valDescripcion</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Product2.DescripcionVenta__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ActualizaDescripcion</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>asignaDescripcionProducto2</name>
+        <label>Asigna descripción desde Producto</label>
+        <locationX>50</locationX>
+        <locationY>575</locationY>
+        <assignmentItems>
+            <assignToReference>valDescripcion</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Product2.DescripcionVenta__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ActualizaDescripcion</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>consultaExisteDescripcionItemOportunidad</name>
+        <label>Existe descripción en Item de Oportunidad</label>
+        <locationX>182</locationX>
+        <locationY>455</locationY>
+        <defaultConnector>
+            <targetReference>asignaDescripcionItemOportunidad</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Si Existe</defaultConnectorLabel>
+        <rules>
+            <name>rConsultaExisteDescripcionItemOportunidad</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OpportunityLineItem.Description</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>asignaDescripcionProducto2</targetReference>
+            </connector>
+            <label>No Existe</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>consultaExisteOportunidad</name>
+        <label>Consulta si existe Oportunidad</label>
+        <locationX>380</locationX>
+        <locationY>335</locationY>
+        <defaultConnector>
+            <targetReference>asignaDescripcionProducto1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Existe</defaultConnectorLabel>
+        <rules>
+            <name>rConsultaExisteOportunidad</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OpportunityLineItem.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>consultaExisteDescripcionItemOportunidad</targetReference>
+            </connector>
+            <label>Si Existe</label>
+        </rules>
+    </decisions>
+    <description>Actualiza descripción de item de presupuesto</description>
+    <environments>Default</environments>
+    <interviewLabel>Actualiza Ítem de Presupuesto 1 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Actualiza Ítem de Presupuesto</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>ActualizaDescripcion</name>
+        <label>Actualiza Descripción</label>
+        <locationX>380</locationX>
+        <locationY>887</locationY>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>valDescripcion</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>consultaExisteOportunidad</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Description</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </filters>
+        <object>QuoteLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>valDescripcion</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

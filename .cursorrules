@@ -1,0 +1,108 @@
+# Salesforce Development Rules
+
+## Lenguaje
+- Responde siempre en español
+- Usa terminología técnica en inglés cuando sea apropiado
+
+## Apex Code Standards
+
+### Nomenclatura
+- Clases: PascalCase con prefijo del proyecto (LUREYE_ClassName)
+- Métodos: camelCase
+- Variables: camelCase
+- Constantes: UPPER_SNAKE_CASE
+
+### Best Practices
+- Siempre usar bulkification (evitar DML/SOQL en loops)
+- Limitar SOQL queries: máximo 100 por transacción
+- Limitar DML statements: máximo 150 por transacción
+- Usar try-catch con logs detallados: getMessage(), getStackTraceString(), getCause(), getLineNumber()
+- Tests: incluir Test.startTest() y Test.stopTest()
+
+### Testing
+- Cobertura mínima: 75%
+- Usar @isTest en vez de testMethod
+- Mockear callouts HTTP
+- Nombres descriptivos: test_WhenCondition_ThenExpectedResult
+- @TestSetup para datos comunes
+- Tests independientes (no depender de orden)
+
+### SOQL/DML
+- Usar SOQL For Loops para grandes volúmenes (>50k records)
+- Verificar permisos con WITH SECURITY_ENFORCED
+- Database.insert/update con allOrNone=false cuando sea necesario
+- Evitar SOQL/DML en loops
+
+### Security
+- Usar 'with sharing' o 'without sharing' explícitamente
+- Validar inputs de usuarios
+- Escapar strings en consultas dinámicas
+- @AuraEnabled(cacheable=true) para métodos de lectura en LWC
+
+## LWC Standards
+
+### JavaScript
+- const/let, nunca var
+- Destructuring para props
+- Async/await para operaciones asíncronas
+- Try-catch para manejo de errores
+
+### HTML
+- Usar slots para composición
+- if:true/if:false sobre for:each cuando sea posible
+- Accesibilidad: labels, aria-*, roles
+
+## Integration Patterns
+
+### REST Callouts
+- Usar Named Credentials cuando sea posible
+- Implementar retry logic
+- Timeout apropiados (default: 120s)
+- Logging de requests/responses para debugging
+
+### Error Handling
+- Capturar excepciones específicas antes que Exception genérica
+- Logs completos: getMessage(), getStackTraceString(), getCause(), getLineNumber()
+- Notificar errores críticos a usuarios/administradores
+
+## Code Generation
+
+### Al generar Apex:
+1. Incluir comentarios explicativos
+2. Respetar convenciones del proyecto actual
+3. Implementar manejo de errores robusto
+4. Considerar límites del governor (CPU time, heap size, SOQL queries)
+5. Sugerir tests unitarios correspondientes
+
+### Al generar tests:
+1. Usar @TestSetup para datos comunes
+2. Tests independientes y determinísticos
+3. Aserciones claras con mensajes descriptivos
+4. Mockear dependencias externas (HTTP callouts, etc.)
+5. Cubrir casos edge y negativos
+
+## Performance
+
+- Usar indexes en campos de filtro frecuentes
+- Evitar campos formula complejos
+- Considerar Platform Events para procesos asíncronos
+- Batch Apex para procesos grandes (>50k records)
+- Queueable para cadenas de procesos asíncronos
+
+## Documentation
+
+- Métodos públicos deben tener comentarios JavaDoc
+- README.md para proyectos/integraciones complejas
+- Diagramas de flujo para integraciones externas
+- Documentar dependencias y configuraciones necesarias
+
+## Deployment
+
+- Siempre validar antes de deploy a producción
+- Usar changesets o CI/CD (preferir CI/CD)
+- Mantener tests actualizados (>75% cobertura)
+- Documentar dependencias de metadata
+- Ejecutar tests locales antes de commit
+
+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NomMes_FC__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(MONTH(DateValue(CreatedDate)),
+    1, &apos;Enero&apos;,
+    2, &apos;Febrero&apos;,
+    3, &apos;Marzo&apos;,
+    4, &apos;Abril&apos;,
+    5, &apos;Mayo&apos;,
+    6, &apos;Junio&apos;,
+    7, &apos;Julio&apos;,
+    8, &apos;Agosto&apos;,
+    9, &apos;Septiembre&apos;,
+    10, &apos;Octubre&apos;,
+    11, &apos;Noviembre&apos;,
+    12, &apos;Diciembre&apos;,
+&apos;&apos;
+)</formula>
+    <label>Mes</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

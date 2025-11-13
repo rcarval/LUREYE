@@ -1,0 +1,59 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0">
+
+    <!-- CSS para forzar que todo ocupe 100% de la pantalla -->
+    <style>
+        html, body {
+            height: 99%;
+            margin: 0;
+            padding: 0;
+        }
+        /* Contenedor principal usando flex para ocupar toda la pantalla */
+        #mainContainer {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        /* Contenedor del iframe */
+        #contentContainer {
+            flex: 1;
+            width: 100%;
+            position: relative;
+        }
+        /* iframe al 100% */
+        #Producto {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Barra inferior */
+        #bottomBar {
+            height: auto;
+            text-align: center;
+            padding: 10px;
+            background-color: #d1f2eb;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+
+    <div id="mainContainer">
+        <!-- Contenido principal (iframe) -->
+        <div id="contentContainer">
+            <apex:iframe src="https://qsolskbotm3i19u.us.qlikcloud.com/single/?appid=2074f1a1-57bd-4928-918e-219c069d96db&sheet=77368c73-6a3d-4057-8d22-e0b7a4bfaebd&theme=sense&opt=ctxmenu,currsel"
+                width="100%" 
+                height="100%"
+                scrolling="auto" 
+                frameborder="0"
+                id="Producto"/>
+        </div>
+
+        <!-- Sección inferior (enlace) -->
+        <div id="bottomBar">
+            <apex:outputLink value="https://lureye.us.qlikcloud.com" target="_blank">
+                Login Qlik Cloud
+            </apex:outputLink>
+        </div>
+    </div>
+
+</apex:page>

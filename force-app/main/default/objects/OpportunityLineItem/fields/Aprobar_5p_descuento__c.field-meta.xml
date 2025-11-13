@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aprobar_5p_descuento__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Aprobar 5% Jefe de Venta</label>
+    <type>Checkbox</type>
+</CustomField>

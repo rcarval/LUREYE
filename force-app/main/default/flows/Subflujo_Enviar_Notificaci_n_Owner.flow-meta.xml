@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Email alert que se envía el owner</description>
+        <name>Descuento_Aprobado</name>
+        <label>Descuento Aprobado</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>Quote.DescuentoAprobado</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>Obtener_Detalle_del_Quote.QuoteId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Quote.DescuentoAprobado</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Elvia custom notification al owner del registro Quote Line item</description>
+        <name>Notificar_Owner</name>
+        <label>Notificar Owner</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>Descuento_Aprobado</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assigment_Error</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <elementReference>Obtener_Notificaci_n_Personalizada.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>VarT_Destinatario</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderId</name>
+            <value>
+                <elementReference>Obtener_Usuario_Owner.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Descuento aprobado - {!Obtener_Detalle_del_Quote.Quote.QuoteToName}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>El descuento para la cotización &quot;{!Obtener_Detalle_del_Quote.Product2.Name}&quot; de la oportunidad  ha sido aprobado</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <elementReference>Obtener_Detalle_del_Quote.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>customNotificationAction</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Asigna el, Id del usuario a una variable de texto para usarla en la notificación</description>
+        <name>Assigment_Destinatario</name>
+        <label>Assigment Destinatario</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_Destinatario</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Obtener_Usuario_Owner.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Notificar_Owner</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Guarda un mensaje de error en variable de texto en caso de que no se logre notificar al aprobador</description>
+        <name>Assigment_Error</name>
+        <label>Assigment Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_error</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>No fue posible notificar al usuario aprobador </stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Válida si la notificación si existe</description>
+        <name>Existe_Notificaci_n</name>
+        <label>Existe Notificación?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Si2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Obtener_Notificaci_n_Personalizada.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assigment_Destinatario</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>valida que la variable de owner no está vacía</description>
+        <name>Existe_Owner</name>
+        <label>Existe Owner</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Si</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Obtener_Usuario_Owner.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Obtener_Detalle_del_Quote</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>valida que la variable no este vacía</description>
+        <name>Existe_partida_de_presupuesto</name>
+        <label>Existe partida de presupuesto</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Si1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>VarT_QuoteId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Obtener_Notificaci_n_Personalizada</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <description>Flujo que envía notificación al usuario owner de la partida de presupuesto luego de la aprobación</description>
+    <environments>Default</environments>
+    <interviewLabel>Subflujo Enviar Notificacion {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Subflujo Enviar Notificación Owner</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Recupera información del Quote o partida para mostrar en la notificación.</description>
+        <name>Obtener_Detalle_del_Quote</name>
+        <label>Obtener Detalle del Quote</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Existe_partida_de_presupuesto</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>VarT_QuoteId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>QuoteLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Obtiene notificación personalizada para el Owner</description>
+        <name>Obtener_Notificaci_n_Personalizada</name>
+        <label>Obtener Notificación Personalizada</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Existe_Notificaci_n</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>DescuentoAprobado</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CustomNotificationType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Recupera la información del usuario owner para usar su nombre o email en la notificación.</description>
+        <name>Obtener_Usuario_Owner</name>
+        <label>Obtener Usuario Owner</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Existe_Owner</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>VarT_OwnerId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Obtener_Usuario_Owner</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Guarda el, Id del usuario a notificar</description>
+        <name>VarT_Destinatario</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Guarda un mensaje de error</description>
+        <name>VarT_error</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Recibe el ID del usuario propietario de la partida de presupuesto.</description>
+        <name>VarT_OwnerId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Recibe el ID del registro del Quote (o partida).</description>
+        <name>VarT_QuoteId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LineaDeNegocio__c</fullName>
+    <description>Línea de Negocio SAP</description>
+    <label>Línea de Negocio</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>POR DEFECTO</fullName>
+                <default>true</default>
+                <label>POR DEFECTO</label>
+            </value>
+            <value>
+                <fullName>10000 TRANSACCIONAL</fullName>
+                <default>false</default>
+                <label>10000 TRANSACCIONAL</label>
+            </value>
+            <value>
+                <fullName>14000 EQUIPOS USADOS</fullName>
+                <default>false</default>
+                <label>14000 EQUIPOS USADOS</label>
+            </value>
+            <value>
+                <fullName>15000 PROYECTOS</fullName>
+                <default>false</default>
+                <label>15000 PROYECTOS</label>
+            </value>
+            <value>
+                <fullName>16000 CANAL TELEFONICO</fullName>
+                <default>false</default>
+                <label>16000 CANAL TELEFONICO</label>
+            </value>
+            <value>
+                <fullName>17000 CANAL KAM</fullName>
+                <default>false</default>
+                <label>17000 CANAL KAM</label>
+            </value>
+            <value>
+                <fullName>18000 ARRIENDOS AMOBLADOS</fullName>
+                <default>false</default>
+                <label>18000 ARRIENDOS AMOBLADOS</label>
+            </value>
+            <value>
+                <fullName>19000 ARRIENDOS SIN AMOBLAR</fullName>
+                <default>false</default>
+                <label>19000 ARRIENDOS SIN AMOBLAR</label>
+            </value>
+            <value>
+                <fullName>20000 FEE</fullName>
+                <default>false</default>
+                <label>20000 FEE</label>
+            </value>
+            <value>
+                <fullName>21000 RELACIONAL</fullName>
+                <default>false</default>
+                <label>21000 RELACIONAL</label>
+            </value>
+            <value>
+                <fullName>22000 SERVICIO</fullName>
+                <default>false</default>
+                <label>22000 SERVICIO</label>
+            </value>
+            <value>
+                <fullName>99000 NUEVOS NEGOCIOS</fullName>
+                <default>false</default>
+                <label>99000 NUEVOS NEGOCIOS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

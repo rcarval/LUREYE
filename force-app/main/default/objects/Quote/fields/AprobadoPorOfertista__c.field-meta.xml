@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AprobadoPorOfertista__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Si el ofertista esta de acuerdo con la cotizacion, puede dar su aprobación de ello. Luego los valores de cotización no podrán modificarse.</inlineHelpText>
+    <label>Aprobado por Ofertista</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

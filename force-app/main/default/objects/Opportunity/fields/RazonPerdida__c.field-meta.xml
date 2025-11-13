@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RazonPerdida__c</fullName>
+    <label>Razón Perdida</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>StageName</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Oferta solo presupuestaria</fullName>
+                <default>false</default>
+                <label>Oferta solo presupuestaria</label>
+            </value>
+            <value>
+                <fullName>Problemas de stock</fullName>
+                <default>false</default>
+                <label>Problemas de stock</label>
+            </value>
+            <value>
+                <fullName>Tiempo de entrega</fullName>
+                <default>false</default>
+                <label>Tiempo de entrega</label>
+            </value>
+            <value>
+                <fullName>Datos mal ingresados en sistema</fullName>
+                <default>false</default>
+                <label>Datos mal ingresados en sistema</label>
+            </value>
+            <value>
+                <fullName>Precio</fullName>
+                <default>false</default>
+                <label>Precio</label>
+            </value>
+            <value>
+                <fullName>Cliente elige a competencia</fullName>
+                <default>false</default>
+                <label>Cliente elige a competencia</label>
+            </value>
+            <value>
+                <fullName>Cliente prefiere otra marca</fullName>
+                <default>false</default>
+                <label>Cliente prefiere otra marca</label>
+            </value>
+            <value>
+                <fullName>Cliente no acepta alternativa</fullName>
+                <default>false</default>
+                <label>Cliente no acepta alternativa</label>
+            </value>
+            <value>
+                <fullName>Cliente con problemas de crédito</fullName>
+                <default>false</default>
+                <label>Cliente con problemas de crédito</label>
+            </value>
+            <value>
+                <fullName>Falta presupuesto</fullName>
+                <default>false</default>
+                <label>Falta presupuesto</label>
+            </value>
+            <value>
+                <fullName>Presentación fuera de plazo</fullName>
+                <default>false</default>
+                <label>Presentación fuera de plazo</label>
+            </value>
+            <value>
+                <fullName>Costo de despacho</fullName>
+                <default>false</default>
+                <label>Costo de despacho</label>
+            </value>
+            <value>
+                <fullName>Inactiva</fullName>
+                <default>false</default>
+                <label>Inactiva</label>
+            </value>
+            <value>
+                <fullName>Otro</fullName>
+                <default>false</default>
+                <label>Otro</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Oferta solo presupuestaria</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Problemas de stock</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Tiempo de entrega</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Datos mal ingresados en sistema</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Precio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Cliente elige a competencia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Cliente prefiere otra marca</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Cliente no acepta alternativa</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Cliente con problemas de crédito</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Falta presupuesto</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Presentación fuera de plazo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Costo de despacho</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Inactiva</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cerrada Perdida</controllingFieldValue>
+            <valueName>Otro</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

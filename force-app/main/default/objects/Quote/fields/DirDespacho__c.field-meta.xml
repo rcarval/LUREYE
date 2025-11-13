@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DirDespacho__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Dirección de Despacho</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Direccion__c.Tipo__c</field>
+            <operation>equals</operation>
+            <value>Despacho</value>
+        </filterItems>
+        <filterItems>
+            <field>$Source.Cliente__c</field>
+            <operation>equals</operation>
+            <valueField>Direccion__c.AccountId__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Direccion__c</referenceTo>
+    <relationshipLabel>Cotizaciones (Dirección de Envío)</relationshipLabel>
+    <relationshipName>Envio</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

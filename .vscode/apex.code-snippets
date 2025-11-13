@@ -1,0 +1,118 @@
+{
+  "Apex Test Method": {
+    "prefix": "testm",
+    "body": [
+      "@isTest",
+      "static void ${1:testMethodName}() {",
+      "\tTest.startTest();",
+      "\t$0",
+      "\tTest.stopTest();",
+      "}"
+    ],
+    "description": "Crea un método de test con Test.startTest() y Test.stopTest()"
+  },
+  "Try Catch Block": {
+    "prefix": "trycatch",
+    "body": [
+      "try {",
+      "\t$0",
+      "} catch (Exception e) {",
+      "\tSystem.debug('⛔ Error: ' + e.getMessage());",
+      "\tSystem.debug('⛔ Stack: ' + e.getStackTraceString());",
+      "}"
+    ],
+    "description": "Bloque try-catch con logs de error detallados"
+  },
+  "SOQL Query with Error Handling": {
+    "prefix": "soql",
+    "body": [
+      "List<${1:SObject}> ${2:records} = [SELECT Id, Name FROM ${1:SObject} WHERE ${3:condition}];",
+      "if (${2:records}.isEmpty()) {",
+      "\tSystem.debug('⚠️ No records found');",
+      "\treturn;",
+      "}"
+    ],
+    "description": "Query SOQL con manejo de lista vacía"
+  },
+  "Debug Log": {
+    "prefix": "debug",
+    "body": "System.debug('${1:✔️} ${2:message}: ' + ${3:variable});",
+    "description": "Log de debug con emoji y variable"
+  },
+  "Invocable Method": {
+    "prefix": "invocable",
+    "body": [
+      "@InvocableMethod(label='${1:Method Label}' description='${2:Description}')",
+      "public static List<${3:ReturnType}> ${4:methodName}(List<${5:InputType}> inputs) {",
+      "\tList<${3:ReturnType}> results = new List<${3:ReturnType}>();",
+      "\t$0",
+      "\treturn results;",
+      "}"
+    ],
+    "description": "Método invocable para Flow"
+  },
+  "HTTP Callout": {
+    "prefix": "httpcallout",
+    "body": [
+      "Http http = new Http();",
+      "HttpRequest request = new HttpRequest();",
+      "HttpResponse response = new HttpResponse();",
+      "",
+      "request.setEndpoint('${1:endpoint}');",
+      "request.setMethod('${2:GET}');",
+      "request.setHeader('Content-Type', 'application/json');",
+      "",
+      "response = http.send(request);",
+      "",
+      "if (response.getStatusCode() == 200) {",
+      "\tSystem.debug('✔️ Response: ' + response.getBody());",
+      "\t$0",
+      "} else {",
+      "\tSystem.debug('⛔ Error: ' + response.getStatusCode());",
+      "}"
+    ],
+    "description": "Callout HTTP básico con manejo de respuesta"
+  },
+  "For Loop with SObject": {
+    "prefix": "forloop",
+    "body": [
+      "for (${1:SObject} ${2:obj} : ${3:objectList}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Loop for sobre lista de SObjects"
+  },
+  "Future Method": {
+    "prefix": "future",
+    "body": [
+      "@future(callout=true)",
+      "public static void ${1:methodName}(${2:parameters}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Método future con callout habilitado"
+  },
+  "Batch Apex Class": {
+    "prefix": "batch",
+    "body": [
+      "public class ${1:BatchClassName} implements Database.Batchable<SObject> {",
+      "\t",
+      "\tpublic Database.QueryLocator start(Database.BatchableContext bc) {",
+      "\t\treturn Database.getQueryLocator([SELECT Id FROM ${2:SObject}]);",
+      "\t}",
+      "\t",
+      "\tpublic void execute(Database.BatchableContext bc, List<${2:SObject}> scope) {",
+      "\t\t$0",
+      "\t}",
+      "\t",
+      "\tpublic void finish(Database.BatchableContext bc) {",
+      "\t\tSystem.debug('✔️ Batch completed');",
+      "\t}",
+      "}"
+    ],
+    "description": "Clase Batch Apex básica"
+  }
+}
+
+
+

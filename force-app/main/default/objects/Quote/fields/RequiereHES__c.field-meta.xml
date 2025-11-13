@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequiereHES__c</fullName>
+    <description>FE Tipo documento base SII
+U_EXX_FE_TDBSII</description>
+    <label>Requiere HES</label>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Venta Normal</fullName>
+                <default>false</default>
+                <label>Venta Normal</label>
+            </value>
+            <value>
+                <fullName>HES</fullName>
+                <default>false</default>
+                <label>HES</label>
+            </value>
+            <value>
+                <fullName>802</fullName>
+                <default>false</default>
+                <label>802</label>
+            </value>
+            <value>
+                <fullName>801</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>801</label>
+            </value>
+            <value>
+                <fullName>LS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>LS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

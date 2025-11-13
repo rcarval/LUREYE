@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recurso_del_rea_de_Productos__c</fullName>
+    <label>Recurso del Área de Productos</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Visita Técnica (levantamiento en terreno y/o reunión aclaratoria)</fullName>
+                <default>false</default>
+                <label>Visita Técnica (levantamiento en terreno y/o reunión aclaratoria)</label>
+            </value>
+            <value>
+                <fullName>Capacitación (entrenamiento técnico especifico de alguna línea de</fullName>
+                <default>false</default>
+                <label>Capacitación (entrenamiento técnico especifico de alguna línea de</label>
+            </value>
+            <value>
+                <fullName>producto)</fullName>
+                <default>false</default>
+                <label>producto)</label>
+            </value>
+            <value>
+                <fullName>Presentación de Productos (apoyar al vendedor en su presentación</fullName>
+                <default>false</default>
+                <label>Presentación de Productos (apoyar al vendedor en su presentación</label>
+            </value>
+            <value>
+                <fullName>comercial)</fullName>
+                <default>false</default>
+                <label>comercial)</label>
+            </value>
+            <value>
+                <fullName>Presentación de Proyectos (Control e integración)</fullName>
+                <default>false</default>
+                <label>Presentación de Proyectos (Control e integración)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

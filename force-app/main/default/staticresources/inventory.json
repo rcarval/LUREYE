@@ -1,0 +1,286 @@
+{
+    "odata.metadata": "$metadata#Collection(Edm.ComplexType)",
+    "value": [
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "01",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "02",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "03",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "AA",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "AF_ARR",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "AF_DIS",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "AF_NDI",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "AF_RBD",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "AF_RDI",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "AF_REP",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "AF_RMT",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "AF_RND",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "BA",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "BANTOF",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "BB",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "BC",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "BCONCEP",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "BCP",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "BP",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        },
+        {
+            "Items": {
+                "ItemCode": "15015812",
+                "ItemName": "6ES7322-1BH01-0AA0 MOD. SM 322",
+                "Valid": "Y",
+                "AvgStdPrice": 125.0
+            },
+            "Items/ItemWarehouseInfoCollection": {
+                "WarehouseCode": "BPROYECT",
+                "InStock": 0.0,
+                "Committed": 0.0,
+                "Ordered": 0.0
+            }
+        }
+    ],
+    "odata.nextLink": "$crossjoin(Items,Items/ItemWarehouseInfoCollection)?$expand=Items($select=ItemCode,ItemName,Valid,AvgStdPrice),Items/ItemWarehouseInfoCollection($select=WarehouseCode,InStock,Committed,Ordered)&$filter=Items/ItemCode%20eq%20Items/ItemWarehouseInfoCollection/ItemCode%20and%20Items/Valid%20eq%20%27Y%27and%20Items/ItemCode%20eq%20%2715015812%27&$skip=20"
+}

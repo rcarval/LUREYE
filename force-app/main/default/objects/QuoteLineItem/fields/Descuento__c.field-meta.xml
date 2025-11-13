@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Descuento__c</fullName>
+    <defaultValue>0</defaultValue>
+    <inlineHelpText>El valor asignado recalculará el precio de venta en función de este campo.
+Si necesita asignar un precio de venta específico, deje el % descuento en cero e ingrese el precio de venta.</inlineHelpText>
+    <label>% Descuento</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

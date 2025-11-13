@@ -1,0 +1,23 @@
+{
+    "odata.metadata": "https://lureye.exxiscloud.com:50000/b1s/v1/$metadata#PriceLists",
+    "value": [
+        {
+            "RoundingMethod": "borm_NoRounding",
+            "GroupNum": "boplgn_Group2",
+            "BasePriceList": 1,
+            "Factor": 1.0,
+            "PriceListNo": 1,
+            "PriceListName": "Lista de precios 01",
+            "IsGrossPrice": "tNO",
+            "Active": "tYES",
+            "ValidFrom": null,
+            "ValidTo": null,
+            "DefaultPrimeCurrency": "CLP",
+            "DefaultAdditionalCurrency1": "CLP",
+            "DefaultAdditionalCurrency2": "CLP",
+            "RoundingRule": "borrRoundOff",
+            "FixedAmount": 0.0,
+            "U_Operacion": null
+        }
+    ]
+}

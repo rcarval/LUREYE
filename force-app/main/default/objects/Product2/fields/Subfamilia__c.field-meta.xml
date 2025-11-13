@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subfamilia__c</fullName>
+    <description>Grupo de artículos (SAP)</description>
+    <label>Subfamilia</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Motores Mix</fullName>
+                <default>false</default>
+                <label>Motores Mix</label>
+            </value>
+            <value>
+                <fullName>Accesorios</fullName>
+                <default>false</default>
+                <label>Accesorios</label>
+            </value>
+            <value>
+                <fullName>Baja Tensión</fullName>
+                <default>false</default>
+                <label>Baja Tensión</label>
+            </value>
+            <value>
+                <fullName>Coaxial Siti</fullName>
+                <default>false</default>
+                <label>Coaxial Siti</label>
+            </value>
+            <value>
+                <fullName>HMI</fullName>
+                <default>false</default>
+                <label>HMI</label>
+            </value>
+            <value>
+                <fullName>Nema</fullName>
+                <default>false</default>
+                <label>Nema</label>
+            </value>
+            <value>
+                <fullName>Tecles</fullName>
+                <default>false</default>
+                <label>Tecles</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

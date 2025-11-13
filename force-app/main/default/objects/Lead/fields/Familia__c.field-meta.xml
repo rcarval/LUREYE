@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Familia__c</fullName>
+    <label>Familia</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Unidad_de_negocio__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Familia</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Electromecánica</controllingFieldValue>
+            <valueName>Motor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electromecánica</controllingFieldValue>
+            <valueName>Transmisión de potencia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electromecánica</controllingFieldValue>
+            <valueName>Equipos de levante</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electromecánica</controllingFieldValue>
+            <valueName>Automatizacion</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electromecánica</controllingFieldValue>
+            <valueName>Proyectos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electromecánica</controllingFieldValue>
+            <valueName>Variador de frecuencia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electromecánica</controllingFieldValue>
+            <valueName>Instrumentación</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electromecánica</controllingFieldValue>
+            <valueName>Control y Maniobra</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Generación</controllingFieldValue>
+            <valueName>Generador 12 a 50 KVA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Generación</controllingFieldValue>
+            <valueName>Generador 50 a 100 KVA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Generación</controllingFieldValue>
+            <valueName>Generador 100 a 250 KVA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Generación</controllingFieldValue>
+            <valueName>Generador 275 a 500 KVA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Generación</controllingFieldValue>
+            <valueName>Generador 500 a 1000 KVA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Generación</controllingFieldValue>
+            <valueName>Generador  1000 a 2000 KVA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Generación</controllingFieldValue>
+            <valueName>Generador 2000 a 4000 KVA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Generación</controllingFieldValue>
+            <valueName>Proyecto de Generación</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Compresor nuevo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Repuesto de compresor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Mantención de compresor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Mantención de generador</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Manual de generador</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Reparación de generador</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Repuesto de generador</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Tablero de transferencia automática</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Visita técnica generador</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Ficha tecnica generador</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Insumos para generador</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Servicio Técnico</controllingFieldValue>
+            <valueName>Kit de mantención</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

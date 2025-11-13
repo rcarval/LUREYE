@@ -1,0 +1,6 @@
+{
+    "odata.metadata": "https://sap10.cloudseidor.com:50001/b1s/v1/$metadata#B1Sessions/@Element",
+    "SessionId": "e413fb8e-44d6-11ed-8000-005056bc3361",
+    "Version": "1000190",
+    "SessionTimeout": 30
+}

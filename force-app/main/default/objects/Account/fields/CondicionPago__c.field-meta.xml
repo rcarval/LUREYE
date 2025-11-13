@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CondicionPago__c</fullName>
+    <label>Condición de pago GE</label>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>30 días Precio Contado</fullName>
+                <default>false</default>
+                <label>30 días Precio Contado</label>
+            </value>
+            <value>
+                <fullName>60 Días sin Intereses</fullName>
+                <default>false</default>
+                <label>60 Días sin Intereses</label>
+            </value>
+            <value>
+                <fullName>90 Días sin Intereses</fullName>
+                <default>false</default>
+                <label>90 Días sin Intereses</label>
+            </value>
+            <value>
+                <fullName>Anticipo, Cheques 30, 60 y 90 días</fullName>
+                <default>false</default>
+                <label>Anticipo, Cheques 30, 60 y 90 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo, Cheques 30 días</fullName>
+                <default>false</default>
+                <label>Anticipo, Cheques 30 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo, Cheques 30 y 45 días</fullName>
+                <default>false</default>
+                <label>Anticipo, Cheques 30 y 45 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo, Cheques 30 y 60 días</fullName>
+                <default>false</default>
+                <label>Anticipo, Cheques 30 y 60 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo, saldo 30 días</fullName>
+                <default>false</default>
+                <label>Anticipo, saldo 30 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 20% saldo 30, 60 y 90 días</fullName>
+                <default>false</default>
+                <label>Anticipo 20% saldo 30, 60 y 90 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 20% saldo 30 días</fullName>
+                <default>false</default>
+                <label>Anticipo 20% saldo 30 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 20% saldo 30 y 60 días</fullName>
+                <default>false</default>
+                <label>Anticipo 20% saldo 30 y 60 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 20% saldo 60 días</fullName>
+                <default>false</default>
+                <label>Anticipo 20% saldo 60 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 30% saldo 30 días</fullName>
+                <default>false</default>
+                <label>Anticipo 30% saldo 30 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 30% saldo 60 días</fullName>
+                <default>false</default>
+                <label>Anticipo 30% saldo 60 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 40%, Cheques 30, 60 y 90 días</fullName>
+                <default>false</default>
+                <label>Anticipo 40%, Cheques 30, 60 y 90 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 40%, Cheques 30 y 60 días</fullName>
+                <default>false</default>
+                <label>Anticipo 40%, Cheques 30 y 60 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 40% saldo 30, 60 y 90 días</fullName>
+                <default>false</default>
+                <label>Anticipo 40% saldo 30, 60 y 90 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 40% saldo 30 días</fullName>
+                <default>false</default>
+                <label>Anticipo 40% saldo 30 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 40% saldo 30 y 60 días</fullName>
+                <default>false</default>
+                <label>Anticipo 40% saldo 30 y 60 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 40% saldo 60 días</fullName>
+                <default>false</default>
+                <label>Anticipo 40% saldo 60 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 40% saldo contra entrega</fullName>
+                <default>false</default>
+                <label>Anticipo 40% saldo contra entrega</label>
+            </value>
+            <value>
+                <fullName>Anticipo 50%, Cheques 30, 60 y 90 días</fullName>
+                <default>false</default>
+                <label>Anticipo 50%, Cheques 30, 60 y 90 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 50% saldo 30 días</fullName>
+                <default>false</default>
+                <label>Anticipo 50% saldo 30 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 50% saldo 60 días</fullName>
+                <default>false</default>
+                <label>Anticipo 50% saldo 60 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 50% saldo contra entrega</fullName>
+                <default>false</default>
+                <label>Anticipo 50% saldo contra entrega</label>
+            </value>
+            <value>
+                <fullName>Anticipo 60% saldo 30, 60 y 90 días</fullName>
+                <default>false</default>
+                <label>Anticipo 60% saldo 30, 60 y 90 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 70%, Cheques 30, 60 y 90 días</fullName>
+                <default>false</default>
+                <label>Anticipo 70%, Cheques 30, 60 y 90 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 70%, Cheques 30 días</fullName>
+                <default>false</default>
+                <label>Anticipo 70%, Cheques 30 días</label>
+            </value>
+            <value>
+                <fullName>Anticipo 70%, Cheques 30 y 60 días</fullName>
+                <default>false</default>
+                <label>Anticipo 70%, Cheques 30 y 60 días</label>
+            </value>
+            <value>
+                <fullName>Cheque adjunto 30, 60 y 90 días</fullName>
+                <default>false</default>
+                <label>Cheque adjunto 30, 60 y 90 días</label>
+            </value>
+            <value>
+                <fullName>Cheque adjunto 30 días</fullName>
+                <default>false</default>
+                <label>Cheque adjunto 30 días</label>
+            </value>
+            <value>
+                <fullName>Cheque adjunto 30 y 60 días</fullName>
+                <default>false</default>
+                <label>Cheque adjunto 30 y 60 días</label>
+            </value>
+            <value>
+                <fullName>Cheque adjunto 45 días</fullName>
+                <default>false</default>
+                <label>Cheque adjunto 45 días</label>
+            </value>
+            <value>
+                <fullName>Cheque adjunto 60 días</fullName>
+                <default>false</default>
+                <label>Cheque adjunto 60 días</label>
+            </value>
+            <value>
+                <fullName>Contado</fullName>
+                <default>true</default>
+                <label>Contado</label>
+            </value>
+            <value>
+                <fullName>Crédito 15 días</fullName>
+                <default>false</default>
+                <label>Crédito 15 días</label>
+            </value>
+            <value>
+                <fullName>Crédito 30 días</fullName>
+                <default>false</default>
+                <label>Crédito 30 días</label>
+            </value>
+            <value>
+                <fullName>Crédito 45 días</fullName>
+                <default>false</default>
+                <label>Crédito 45 días</label>
+            </value>
+            <value>
+                <fullName>Crédito 60 días</fullName>
+                <default>false</default>
+                <label>Crédito 60 días</label>
+            </value>
+            <value>
+                <fullName>Crédito 75 días</fullName>
+                <default>false</default>
+                <label>Crédito 75 días</label>
+            </value>
+            <value>
+                <fullName>Crédito 7 días</fullName>
+                <default>false</default>
+                <label>Crédito 7 días</label>
+            </value>
+            <value>
+                <fullName>Crédito 90 días</fullName>
+                <default>false</default>
+                <label>Crédito 90 días</label>
+            </value>
+            <value>
+                <fullName>Cuotas 30, 60, 90 s/Intereses</fullName>
+                <default>false</default>
+                <label>Cuotas 30, 60, 90 s/Intereses</label>
+            </value>
+            <value>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+                <label>Leasing</label>
+            </value>
+            <value>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cheque</label>
+            </value>
+            <value>
+                <fullName>OC 30 días</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OC 30 días</label>
+            </value>
+            <value>
+                <fullName>OC 60 días</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OC 60 días</label>
+            </value>
+            <value>
+                <fullName>OC 90 días</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OC 90 días</label>
+            </value>
+            <value>
+                <fullName>Otro</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Otro</label>
+            </value>
+            <value>
+                <fullName>Tarjeta debito/crédito</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tarjeta debito/crédito</label>
+            </value>
+            <value>
+                <fullName>Transferencia</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Transferencia</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

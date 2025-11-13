@@ -1,0 +1,66 @@
+# Salesforce Development Rules
+
+## Lenguaje
+- Responde siempre en español
+- Usa terminología técnica en inglés cuando sea apropiado
+
+## Apex Code Standards
+
+### Nomenclatura
+- Clases: PascalCase con prefijo del proyecto
+- Métodos: camelCase
+- Variables: camelCase
+- Constantes: UPPER_SNAKE_CASE
+
+### Best Practices
+- Siempre usar bulkification (evitar DML/SOQL en loops)
+- Limitar SOQL queries: máximo 100 por transacción
+- Limitar DML statements: máximo 150 por transacción
+- Usar try-catch con logs detallados: getMessage(), getStackTraceString(), getCause(), getLineNumber()
+- Tests: incluir Test.startTest() y Test.stopTest()
+
+### Testing
+- Cobertura mínima: 75%
+- Usar @isTest en vez de testMethod
+- Mockear callouts HTTP
+- Nombres descriptivos: test_WhenCondition_ThenExpectedResult
+- @TestSetup para datos comunes
+
+### SOQL/DML
+- Usar SOQL For Loops para grandes volúmenes (>50k records)
+- Verificar permisos con WITH SECURITY_ENFORCED
+- Database.insert/update con allOrNone=false cuando sea necesario
+- Evitar SOQL/DML en loops
+
+### Security
+- Usar 'with sharing' o 'without sharing' explícitamente
+- Validar inputs de usuarios
+- Escapar strings en consultas dinámicas
+- @AuraEnabled(cacheable=true) para métodos de lectura en LWC
+
+## LWC Standards
+- const/let, nunca var
+- Async/await para operaciones asíncronas
+- Try-catch para manejo de errores
+- Accesibilidad: labels, aria-*, roles
+
+## Integration Patterns
+- Named Credentials cuando sea posible
+- Retry logic en callouts
+- Timeout apropiados (default: 120s)
+- Logging de requests/responses
+
+## Code Generation
+- Incluir comentarios explicativos
+- Manejo de errores robusto
+- Considerar límites del governor
+- Sugerir tests unitarios
+
+## Performance
+- Batch Apex para procesos grandes (>50k records)
+- Queueable para cadenas de procesos asíncronos
+- Platform Events para procesos asíncronos
+
+## Deployment
+- Validar antes de deploy a producción
+- Mantener tests actualizados (>75% cobertura)

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DescuentoVendedorP__c</fullName>
+    <description>Descuento vendedor %</description>
+    <formula>if (TotalPrecioLista__c &gt; Subtotal , (TotalPrecioLista__c - Subtotal)/TotalPrecioLista__c ,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Descuento calculado de los Ítems</inlineHelpText>
+    <label>Descuento Items</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

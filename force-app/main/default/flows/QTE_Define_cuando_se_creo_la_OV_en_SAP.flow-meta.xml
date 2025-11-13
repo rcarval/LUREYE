@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Evaluar_el_estatus_SAP_de_la_OV</name>
+        <label>Evaluar el estatus SAP de la OV</label>
+        <locationX>182</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Actualizar_a_Null_Fecha_Hora_Creacion_SAP1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>OV_Creada</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Estado_en_SAP__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Orden de Venta Creada</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Actualizar_Campo_Fecha_Hora_de_OV_creada_SAP</targetReference>
+            </connector>
+            <label>OV Creada</label>
+        </rules>
+    </decisions>
+    <description>Este flujo actualiza el campo Fecha/Hora OV creada en SAP para usar a este como referencia para cerrar la oportunidad como ganada</description>
+    <environments>Default</environments>
+    <interviewLabel>QTE - Define cuando se creo la OV en SAP {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>QTE - Define cuando se creo la OV en SAP</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Actualizar_a_Null_Fecha_Hora_Creacion_SAP1</name>
+        <label>Actualizar a Null Fecha/Hora Creacion SAP</label>
+        <locationX>314</locationX>
+        <locationY>395</locationY>
+        <inputAssignments>
+            <field>Fecha_Hora_OV_creada_en_SAP__c</field>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Actualizar_Campo_Fecha_Hora_de_OV_creada_SAP</name>
+        <label>Actualizar Campo Fecha/Hora de OV creada SAP</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <inputAssignments>
+            <field>Fecha_Hora_OV_creada_en_SAP__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Evaluar_el_estatus_SAP_de_la_OV</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Estado_en_SAP__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Quote</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

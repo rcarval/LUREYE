@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SlpCode__c</fullName>
+    <defaultValue>1</defaultValue>
+    <description>Se debe pasar un valor por defecto de un usuario &quot;comodín&quot; ingresado en SAP, por el momento pasaremos el valor &quot;1&quot;</description>
+    <externalId>false</externalId>
+    <label>Código del empleado de ventas</label>
+    <precision>11</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

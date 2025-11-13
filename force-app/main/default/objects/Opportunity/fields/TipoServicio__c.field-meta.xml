@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TipoServicio__c</fullName>
+    <label>Tipo de Servicio</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Mantención Preventiva</fullName>
+                <default>false</default>
+                <label>Mantención Preventiva</label>
+            </value>
+            <value>
+                <fullName>Mantención Correctiva</fullName>
+                <default>false</default>
+                <label>Mantención Correctiva</label>
+            </value>
+            <value>
+                <fullName>Venta de Mesón</fullName>
+                <default>false</default>
+                <label>Venta de Mesón</label>
+            </value>
+            <value>
+                <fullName>Contrato</fullName>
+                <default>false</default>
+                <label>Contrato</label>
+            </value>
+            <value>
+                <fullName>Otros</fullName>
+                <default>true</default>
+                <label>Otros</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

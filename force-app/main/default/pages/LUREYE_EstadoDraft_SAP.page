@@ -1,0 +1,20 @@
+<apex:page standardController="Quote" extensions="LUREYE_Drafts_SAP" showHeader="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" 
+lightningStylesheets="true" showQuickActionVfHeader="false">  
+    <apex:slds />
+    <c:LUREYE_VFC_Sap_Loading />
+    
+    <apex:form id="form1">
+        <apex:actionFunction action="{!ConsultaDraftsPage}" name="sinc" status="loadStatus" rerender="form1"/>
+        <div style="padding:65px;">
+            <apex:pageMessages ></apex:pageMessages>   
+            <br/>
+            <center>
+                <apex:commandButton value="Volver a la cotización" action="{!volver}" rendered="{!mostrarBtnVolver}"/>
+            </center>
+        </div>
+    </apex:form>
+      <script>
+        sinc();
+    </script>
+    
+</apex:page>
