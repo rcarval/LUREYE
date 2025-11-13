@@ -185,12 +185,12 @@ global class LUREYE_Drafts_SAP {
             String regionDespacho = null;
             if (qryQuote.DirDespacho__c != null) {
                 try {
-                    Direccion__c dirDesp = [SELECT Region__c, Ciudad__c 
-                                            FROM Direccion__c 
-                                            WHERE Id = :qryQuote.DirDespacho__c 
-                                            LIMIT 1];
-                    regionDespacho = dirDesp.Region__c;
-                    System.debug('🏭 [BODEGA] Región de despacho: ' + dirDesp.Region__c + ' (' + dirDesp.Ciudad__c + ')');
+                    Direccion__c direccionDespacho = [SELECT Region__c, Ciudad__c 
+                                                      FROM Direccion__c 
+                                                      WHERE Id = :qryQuote.DirDespacho__c 
+                                                      LIMIT 1];
+                    regionDespacho = direccionDespacho.Region__c;
+                    System.debug('🏭 [BODEGA] Región de despacho: ' + direccionDespacho.Region__c + ' (' + direccionDespacho.Ciudad__c + ')');
                 } catch (Exception e) {
                     System.debug('⚠️ [BODEGA] Error obteniendo región de despacho: ' + e.getMessage());
                 }
