@@ -4,8 +4,8 @@
     <fullName>Codigo_Bodega_SAP__c</fullName>
     <label>Código Bodega SAP</label>
     <length>20</length>
+    <description>Código de bodega en SAP (WarehouseCode). Ejemplos: VTLE, ST10, STA10, STSP10, STC10, VTADFL10</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
     <required>true</required>
     <type>Text</type>
-    <description>Código de bodega en SAP (WarehouseCode). Ejemplos: VTLE, ST10, STA10, STSP10, STC10, VTADFL10</description>
 </CustomField>
-

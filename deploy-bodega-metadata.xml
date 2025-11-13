@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Bodega_SAP__mdt</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Bodega_SAP__mdt.Activo__c</members>
+        <members>Bodega_SAP__mdt.Codigo_Bodega_SAP__c</members>
+        <members>Bodega_SAP__mdt.Linea_Negocio__c</members>
+        <members>Bodega_SAP__mdt.Nombre_Bodega__c</members>
+        <members>Bodega_SAP__mdt.Prioridad__c</members>
+        <members>Bodega_SAP__mdt.Region_Despacho__c</members>
+        <members>Bodega_SAP__mdt.Requiere_HES__c</members>
+        <name>CustomField</name>
+    </types>
+    <version>65.0</version>
+</Package>
+

@@ -4,8 +4,7 @@
     <fullName>Nombre_Bodega__c</fullName>
     <label>Nombre Bodega</label>
     <length>100</length>
-    <required>false</required>
-    <type>Text</type>
     <description>Nombre descriptivo de la bodega en SAP. Ejemplo: BODEGA VENTAS GENERACION LO ESPEJO</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <type>Text</type>
 </CustomField>
-

@@ -4,8 +4,7 @@
     <fullName>Linea_Negocio__c</fullName>
     <label>Línea de Negocio</label>
     <length>255</length>
-    <required>false</required>
-    <type>TextArea</type>
     <description>Códigos de línea de negocio separados por coma. Ejemplos: "21000,15000,10000" o "TODAS" para aplicar a cualquier línea</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <type>TextArea</type>
 </CustomField>
-

@@ -4,8 +4,7 @@
     <fullName>Requiere_HES__c</fullName>
     <label>Requiere HES</label>
     <length>50</length>
-    <required>false</required>
-    <type>Text</type>
     <description>Valores de Quote.RequiereHES__c separados por coma. Ejemplos: "HES,802" para condiciones especiales, "VENTA_NORMAL" para ventas normales, o "TODAS"</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <type>Text</type>
 </CustomField>
-

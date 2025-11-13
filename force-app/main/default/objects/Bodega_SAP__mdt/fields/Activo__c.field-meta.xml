@@ -4,8 +4,7 @@
     <fullName>Activo__c</fullName>
     <label>Activo</label>
     <defaultValue>true</defaultValue>
-    <required>false</required>
-    <type>Checkbox</type>
     <description>Indica si esta configuración de bodega está activa. Solo las configuraciones activas se evalúan</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <type>Checkbox</type>
 </CustomField>
-

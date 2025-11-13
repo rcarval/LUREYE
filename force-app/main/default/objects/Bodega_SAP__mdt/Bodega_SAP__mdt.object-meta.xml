@@ -4,8 +4,6 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <label>Bodega SAP</label>
     <pluralLabel>Bodegas SAP</pluralLabel>
-    <visibility>Public</visibility>
     <description>Configuración de bodegas SAP para asignación dinámica en Órdenes de Venta según línea de negocio, región y condición de pago</description>
 </CustomObject>
 <!-- RCG - 13/11/2025 - Ticket N° 00024376 - FIN -->
-
